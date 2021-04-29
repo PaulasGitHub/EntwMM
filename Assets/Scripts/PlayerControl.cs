@@ -31,30 +31,27 @@ public class PlayerControl : MonoBehaviour
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
 
-        //calculate rotation angle
-        angle += moveHorizontal * 0.01f * Time.deltaTime;
-        Vector3 targetDirection = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
-        Quaternion rotationR = Quaternion.LookRotation(targetDirection);
-
-        //move Player left, right, forwards, backwards
-        Vector3 targetForward = rotationR * Vector3.forward;
-        Vector3 targetRight = rotationR * Vector3.right;
-
         //move player according to ratation
-        transform.Translate(targetForward * Time.deltaTime * speed * moveVertical);
-        transform.Translate(targetRight * Time.deltaTime * speed * moveHorizontal);
+        transform.Translate(transform.forward * Time.deltaTime * speed * moveVertical);
+        transform.Translate(transform.right * Time.deltaTime * speed * moveHorizontal);
 
         //rotate Player clockwise when e is pressed
         if (Input.GetKey(KeyCode.E))
         {
-            transform.rotation *= Quaternion.Euler(0, 1, 0);
+            angle += 0.5f * Time.deltaTime;
         }
 
         //rotate Player anti-clockwise when q is pressed
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.rotation *= Quaternion.Euler(0, -1, 0);
+            angle -= 0.5f * Time.deltaTime;
         }
+
+        //calculate rotation angle
+        Vector3 targetDirection = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
+        Quaternion rotationR = Quaternion.LookRotation(targetDirection);
+
+        transform.rotation = rotationR;
 
         keepPlayerInbounds();
         
