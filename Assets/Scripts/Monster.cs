@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour
     void Update()
     {
         //get position of player
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        Vector3 lookDirection = (player.transform.position - transform.localPosition).normalized;
 
         //add force to RigidBody of monster in direction of player
         //monster moves speed fast towards player position
