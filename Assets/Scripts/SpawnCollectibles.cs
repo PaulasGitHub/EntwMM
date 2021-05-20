@@ -64,7 +64,9 @@ public class SpawnCollectibles : MonoBehaviour
                 }
             }
         } while (!posFree);
-            Instantiate(myPrefab, allPos[j], myPrefab.transform.localRotation);
+          
+           var obj =  Instantiate(myPrefab, allPos[j], myPrefab.transform.rotation);
+            obj.transform.parent = transform;
         } 
     }
 }
