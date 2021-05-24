@@ -59,8 +59,11 @@ public class SpawnMonster : MonoBehaviour
                     }
                 }
             } while (!posFree);
-             var obj = Instantiate(monster, allPos[j], monster.transform.localRotation);
-            obj.transform.parent = transform;
+            Instantiate(monster, allPos[j], monster.transform.rotation);
+
+            //fuer Abgabe 2
+            //var obj = Instantiate(monster, allPos[j], monster.transform.localRotation);
+            //obj.transform.parent = transform;
         }
     }
 }
