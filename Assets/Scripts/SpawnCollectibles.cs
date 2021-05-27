@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnCollectibles : MonoBehaviour
 {
-
     public Transform myPrefab;
 
     [SerializeField, Range (0, 5)]
@@ -17,6 +16,8 @@ public class SpawnCollectibles : MonoBehaviour
 
     [SerializeField, Range (0, 2)]
     private float minDistance = 2; //minimum distance between spawned objects
+
+    public 
 
 
     // Start is called before the first frame update
@@ -65,7 +66,7 @@ public class SpawnCollectibles : MonoBehaviour
             }
         } while (!posFree);
             Instantiate(myPrefab, allPos[j], myPrefab.transform.rotation);
-
+            
             //fuer Abgabe2
             //var obj =  Instantiate(myPrefab, allPos[j], myPrefab.transform.rotation);
             //obj.transform.parent = transform;
