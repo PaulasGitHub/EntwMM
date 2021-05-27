@@ -32,8 +32,8 @@ public class PlayerControl : MonoBehaviour
         moveVertical = Input.GetAxis("Vertical");
 
         //move player according to ratation
-        transform.Translate(transform.forward * Time.deltaTime * speed * moveVertical);
-        transform.Translate(transform.right * Time.deltaTime * speed * moveHorizontal);
+        transform.Translate(transform.forward * Time.deltaTime * speed * moveVertical, Space.Self);
+        transform.Translate(transform.right * Time.deltaTime * speed * moveHorizontal, Space.Self);
 
         //rotate Player clockwise when e is pressed
         if (Input.GetKey(KeyCode.E))
