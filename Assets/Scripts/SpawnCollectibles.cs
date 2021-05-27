@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SpawnCollectibles : MonoBehaviour
 {
-    public Vector3 spawnPosCol;
-
     public Transform myPrefab;
 
     [SerializeField, Range (0, 5)]
@@ -68,7 +66,7 @@ public class SpawnCollectibles : MonoBehaviour
             }
         } while (!posFree);
             Instantiate(myPrefab, allPos[j], myPrefab.transform.rotation);
-            spawnPosCol = myPrefab.transform.position;
+            
             //fuer Abgabe2
             //var obj =  Instantiate(myPrefab, allPos[j], myPrefab.transform.rotation);
             //obj.transform.parent = transform;
